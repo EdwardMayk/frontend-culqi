@@ -10,6 +10,8 @@
     "buildt": "postcss src/styles.css -o dist/styles.css"
   },
   "dependencies": {
+    "@types/node": "^20.9.1",
+    "@vue/cli": "^5.0.8",
     "autoprefixer": "^10.4.16",
     "core-js": "^3.8.3",
     "postcss": "^8.4.31",
@@ -73,6 +75,12 @@
     "not ie 11"
   ],
   "jest": {
-    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
+    "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
+    "moduleNameMapper": {
+      "/^components/(.*)$/": "<rootDir>/src/components/$1"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/unit/setup.ts"
+    ]
   }
 }
